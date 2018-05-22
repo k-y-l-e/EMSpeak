@@ -24,14 +24,16 @@
             android:layout_width="match_parent"
             android:layout_height="50pt"
             android:layout_weight="1"
-            android:text="Hello World!" />
+            android:text="Translated text here."
+            android:textStyle="bold"
+            android:textSize="8pt" />
 
         <EditText
             android:id="@+id/inputTxt"
             android:layout_width="match_parent"
             android:layout_height="50pt"
             android:layout_below="@+id/outputTxt"
-            android:hint="enter text to be translated"
+            android:hint="Enter text to be translated"
             android:layout_weight="1" />
 
     </LinearLayout>
