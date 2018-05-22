@@ -19,6 +19,8 @@
         android:layout_weight=".5">
 
 
+
+        <!-- original
         <TextView
             android:id="@+id/outputTxt"
             android:layout_width="match_parent"
@@ -34,7 +36,44 @@
             android:layout_height="50pt"
             android:layout_below="@+id/outputTxt"
             android:hint="Enter text to be translated"
-            android:layout_weight="1" />
+            android:layout_weight="1" /> -->
+
+
+
+        <TextView
+            android:id="@+id/outputTxt"
+            android:layout_width="match_parent"
+            android:layout_height="50pt"
+            android:layout_weight="1"
+            android:text="Translated text here."
+            android:textStyle="bold"
+            android:textSize="8pt" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50pt"
+            android:orientation="horizontal"
+            android:layout_below="@+id/outputTxt"
+            android:id="@+id/txtInputFields"
+            android:layout_weight=".5">
+
+            <EditText
+                android:id="@+id/inputTxt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Enter text to be translated"
+                android:layout_weight="2" />
+
+            <ImageButton
+                android:id="@+id/txtBtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="9"
+                android:src="@drawable/play"/>
+
+        </LinearLayout>
+
+
 
     </LinearLayout>
 
