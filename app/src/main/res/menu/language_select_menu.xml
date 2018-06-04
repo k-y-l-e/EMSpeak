@@ -6,14 +6,33 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/Spanish"
-            android:title="Spanish" />
+            android:title="Spanish"
+            android:icon="@drawable/language_icon"/>
         <item
             android:id="@+id/Portuguese"
-            android:title="Portuguese" />
+            android:title="Portuguese"
+            android:icon="@drawable/language_icon"
+            />
         <item
             android:id="@+id/Chinese"
-            android:title="Chinese" />
-
+            android:title="Chinese"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Vietnamese"
+            android:title="Vietnamese"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/German"
+            android:title="German"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Arabic"
+            android:title="Arabic"
+            android:icon="@drawable/language_icon"
+            />
     </group>
 
 
