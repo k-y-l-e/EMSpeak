@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,9 +22,11 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    LinearLayout btnLin;
+    LinearLayout btnLin, langLin;
     EditText et;
     TextView tv;
+    DrawerLayout mDrawerlayout;
+    ImageButton right_menu;
 
 
 
@@ -33,6 +36,15 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        mDrawerlayout = findViewById(R.id.languages);
+        right_menu = findViewById(R.id.right_menu_button);
+        langLin = findViewById(R.id.languages);
+        right_menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDrawerlayout.openDrawer(langLin);
+            }
+        });
 
 
 
@@ -68,19 +80,28 @@ public class MainActivity extends AppCompatActivity
                             "Is your vision normal?"};
 
 
+        String quickLang[] = {"Spanish",
+                                "Portuguese",
+                                "Chinese",
+                                "vietnamese",
+                                "Korean",
+                                "Japanese"
+        };
+        langLin = findViewById(R.id.language_buttons);
         btnLin=(LinearLayout)findViewById(R.id.btnSV);
         et = (EditText) findViewById(R.id.inputTxt);
         tv = (TextView) findViewById(R.id.outputTxt);
+
 
         int n = quickBtn.length;
 
         Button[] btn = new Button[n];
 
+
         for (int i = 0; i < n; i++) {
             btn[i] = new Button(this); //create button object
             btn[i].setText(quickBtn[i]); //sets button's text
             btnLin.addView(btn[i]); //adds button to LinearLayout inside ScrollView
-
 
             /* creates onClickListener for each button so when clicked,
                its text will populate the text fields */
@@ -93,20 +114,17 @@ public class MainActivity extends AppCompatActivity
 
                     et.setText(bTxt);
                     tv.setText(bTxt);
-
                 }
             });
-
-
-
         }
 
 
 
 
 
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
