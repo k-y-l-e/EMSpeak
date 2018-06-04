@@ -22,13 +22,9 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    LinearLayout btnLin, langLin;
+    LinearLayout btnLin;
     EditText et;
     TextView tv;
-    DrawerLayout mDrawerlayout;
-    ImageButton right_menu;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,15 +32,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        mDrawerlayout = findViewById(R.id.languages);
-        right_menu = findViewById(R.id.right_menu_button);
-        langLin = findViewById(R.id.languages);
-        right_menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mDrawerlayout.openDrawer(langLin);
-            }
-        });
 
 
 
@@ -80,14 +67,7 @@ public class MainActivity extends AppCompatActivity
                             "Is your vision normal?"};
 
 
-        String quickLang[] = {"Spanish",
-                                "Portuguese",
-                                "Chinese",
-                                "vietnamese",
-                                "Korean",
-                                "Japanese"
-        };
-        langLin = findViewById(R.id.language_buttons);
+
         btnLin=(LinearLayout)findViewById(R.id.btnSV);
         et = (EditText) findViewById(R.id.inputTxt);
         tv = (TextView) findViewById(R.id.outputTxt);
