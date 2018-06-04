@@ -135,47 +135,51 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
 
         if (id == R.id.nav_settings) {
             Log.v("myApp", "settings is clicked");
 
-
         } else if (id == R.id.nav_help) {
+            Log.v("myApp", "Help is clicked");
+
 
         } else if (id == R.id.nav_about) {
+            Log.v("myApp", "About is clicked");
+
 
         }
         else if (id == R.id.Arabic){
             Log.v("myApp", "Arabic is clicked");
+            drawer.closeDrawer(GravityCompat.END);
+
 
 
         }
         else if (id == R.id.Spanish){
             Log.v("myApp", "Spanish is clicked");
-
+            drawer.closeDrawer(GravityCompat.END);
 
         }
         else if (id == R.id.Chinese){
             Log.v("myApp", "Chinese is clicked");
-
-
+            drawer.closeDrawer(GravityCompat.END);
         }
         else if (id == R.id.Vietnamese){
             Log.v("myApp", "Vietnamese is clicked");
-
-
+            drawer.closeDrawer(GravityCompat.END);
         }
         else if (id == R.id.German){
             Log.v("myApp", "German is clicked");
+            drawer.closeDrawer(GravityCompat.END);
 
         }
         else if (id == R.id.Portuguese){
             Log.v("myApp", "Portuguese is clicked");
-
-
+            drawer.closeDrawer(GravityCompat.END);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
