@@ -3,6 +3,7 @@ package edu.wit.seniorproject.emspeak.emspeak;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -112,6 +113,10 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        NavigationView navigationView1 = findViewById(R.id.lang_select_view);
+        navigationView1.setNavigationItemSelectedListener(this);
+
     }
 
     @Override
@@ -132,10 +137,41 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_settings) {
+            Log.v("myApp", "settings is clicked");
+
 
         } else if (id == R.id.nav_help) {
 
         } else if (id == R.id.nav_about) {
+
+        }
+        else if (id == R.id.Arabic){
+            Log.v("myApp", "Arabic is clicked");
+
+
+        }
+        else if (id == R.id.Spanish){
+            Log.v("myApp", "Spanish is clicked");
+
+
+        }
+        else if (id == R.id.Chinese){
+            Log.v("myApp", "Chinese is clicked");
+
+
+        }
+        else if (id == R.id.Vietnamese){
+            Log.v("myApp", "Vietnamese is clicked");
+
+
+        }
+        else if (id == R.id.German){
+            Log.v("myApp", "German is clicked");
+
+        }
+        else if (id == R.id.Portuguese){
+            Log.v("myApp", "Portuguese is clicked");
+
 
         }
 
