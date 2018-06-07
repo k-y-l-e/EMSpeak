@@ -100,12 +100,6 @@ public class MainActivity extends AppCompatActivity
 
 
         }
-
-
-
-
-
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -114,6 +108,8 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        NavigationView navigationView1 = findViewById(R.id.lang_select_view);
+        navigationView1.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -130,19 +126,49 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        drawer.closeDrawer(GravityCompat.START);
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_settings) {
 
-        } else if (id == R.id.nav_help) {
+        }
+        else if (id == R.id.nav_help) {
 
-        } else if (id == R.id.nav_about) {
+        }
+        else if (id == R.id.nav_about) {
+
+
+        }
+        else if (id == R.id.Arabic){
+            drawer.closeDrawer(GravityCompat.END);
+
+        }
+        else if (id == R.id.Chinese){
+            drawer.closeDrawer(GravityCompat.END);
+
+        }
+        else if (id == R.id.Vietnamese){
+            drawer.closeDrawer(GravityCompat.END);
+
+        }
+        else if (id == R.id.German){
+            drawer.closeDrawer(GravityCompat.END);
+
+        }
+        else if (id == R.id.Portuguese){
+            drawer.closeDrawer(GravityCompat.END);
+
+        }
+        else if (id == R.id.Spanish){
+            drawer.closeDrawer(GravityCompat.END);
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 }
