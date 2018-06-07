@@ -1,11 +1,8 @@
 package edu.wit.seniorproject.emspeak.emspeak;
 
-import android.annotation.SuppressLint;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -21,121 +18,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.*;
-
-import android.os.AsyncTask;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
-import javax.net.ssl.HttpsURLConnection;
-
-
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     LinearLayout btnLin;
     EditText et;
     TextView tv;
-
-
-
-
-
-
-
-    // --------------------------------------------------------------------
-    // All the microsoft info we need
-
-    static String subscriptionKey = "cbb3735223de414aae6bc3c5885e8630";
-
-    static String host = "https://api.cognitive.microsofttranslator.com";
-    static String path = "/translate?api-version=3.0";
-
-    // Translate to German and Italian.
-    static String params = "&to=es&to=it";
-    static String text;// = "Hello my name is Kyle";
-    // --------------------------------------------------------------------
-
-
-
-
-
-
-
-    // --------------------------------------------------------------------
-    // all of Microsofts required methods
-
-
-    public static class RequestBody {
-        String Text;
-
-        public RequestBody(String text) {
-            this.Text = text;
-        }
-    }
-
-    public static String Post (URL url, String content) throws Exception {
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        connection.setRequestMethod("POST");
-        connection.setRequestProperty("Content-Type", "application/json");
-        connection.setRequestProperty("Content-Length", content.length() + "");
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-        connection.setRequestProperty("X-ClientTraceId", java.util.UUID.randomUUID().toString());
-        connection.setDoOutput(true);
-
-        DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
-        byte[] encoded_content = content.getBytes("UTF-8");
-        wr.write(encoded_content, 0, encoded_content.length);
-        wr.flush();
-        wr.close();
-
-        StringBuilder response = new StringBuilder ();
-        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
-        String line;
-        while ((line = in.readLine()) != null) {
-            response.append(line);
-        }
-        in.close();
-
-        return response.toString();
-    }
-
-    public static String Translate () throws Exception {
-        Log.v("TAG", "Inside Translate() method");
-        URL url = new URL (host + path + params);
-        Log.v("TAG", "url is " + url);
-
-        List<RequestBody> objList = new ArrayList<RequestBody>();
-        objList.add(new RequestBody(text));
-        String content = new Gson().toJson(objList);
-
-        return Post(url, content);
-    }
-
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonElement json = parser.parse(json_text);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-
-    // --------------------------------------------------------------------
-
-
-
-
-
-
-
-
 
 
 
@@ -148,33 +36,16 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        btnLin=(LinearLayout)findViewById(R.id.btnSV);
-        et = (EditText) findViewById(R.id.inputTxt);
-        tv = (TextView) findViewById(R.id.outputTxt);
-
-
-
         /*
-        // cannot run on main thread so run as async task
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-
-                try {
-                    String response = Translate();
-                    tv.setText(response);
-
-                } catch (Exception e) {
-                    Log.e("TAG", String.valueOf(e));
-                }
-
-            }
-
-        });
-        */
-
-
-
+        // test, programmatically generate buttons
+        btnLin=(LinearLayout)findViewById(R.id.btnSV);
+        Button[] btn = new Button[10];
+        for (int i = 0; i < 10; i++) {
+            btn[i] = new Button(this);
+            //btn[i].setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
+            btn[i].setText("This is the button" + i);
+            btnLin.addView(btn[i]);
+        } */
 
 
 
@@ -197,10 +68,9 @@ public class MainActivity extends AppCompatActivity
                             "Is your vision normal?"};
 
 
-        // defined up top, testing API call
-        //btnLin=(LinearLayout)findViewById(R.id.btnSV);
-        //et = (EditText) findViewById(R.id.inputTxt);
-        //tv = (TextView) findViewById(R.id.outputTxt);
+        btnLin=(LinearLayout)findViewById(R.id.btnSV);
+        et = (EditText) findViewById(R.id.inputTxt);
+        tv = (TextView) findViewById(R.id.outputTxt);
 
         int n = quickBtn.length;
 
@@ -221,31 +91,8 @@ public class MainActivity extends AppCompatActivity
                     Button b = (Button)v;
                     String bTxt = b.getText().toString();
 
-                    // change variable globally
-                    text = bTxt;
-
                     et.setText(bTxt);
-                    //tv.setText(bTxt);
-
-
-                    AsyncTask.execute(new Runnable() {
-                        @Override
-                        public void run() {
-
-                            try {
-                                String response = Translate();
-                                tv.setText(response);
-
-                            } catch (Exception e) {
-                                Log.e("TAG", String.valueOf(e));
-                            }
-
-                        }
-
-                    });
-
-
-
+                    tv.setText(bTxt);
 
                 }
             });
@@ -298,6 +145,4 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
 }
