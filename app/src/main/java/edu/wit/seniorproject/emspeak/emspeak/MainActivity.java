@@ -1,5 +1,6 @@
 package edu.wit.seniorproject.emspeak.emspeak;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -141,6 +142,13 @@ public class MainActivity extends AppCompatActivity
 
         }
         else if (id == R.id.nav_about) {
+
+
+        }
+        else if(id == R.id.add_question){
+            Intent intent = new Intent();
+            intent.setClass(MainActivity.this, AddQuestionActivity.class);
+            startActivity(intent);
 
 
         }

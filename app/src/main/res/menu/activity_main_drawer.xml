@@ -19,5 +19,13 @@
 
     </group>
 
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/add_question"
+            android:icon="@drawable/plus_icon"
+            android:title="Add New Question"/>
+    </group>
+
 
 </menu>
