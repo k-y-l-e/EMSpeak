@@ -1,6 +1,7 @@
 package edu.wit.seniorproject.emspeak.emspeak;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity
     static String host = "https://api.cognitive.microsofttranslator.com";
     static String path = "/translate?api-version=3.0";
 
-    // Translate to German and Italian.
+
     static String params = "&to=es";//&to=it";
     static String text;// = "Hello my name is Kyle";
     // --------------------------------------------------------------------
@@ -173,6 +174,30 @@ public class MainActivity extends AppCompatActivity
         et = (EditText) findViewById(R.id.inputTxt);
         tv = (TextView) findViewById(R.id.outputTxt);
 
+
+
+        /*
+            this was placed inside the button creation so each button
+            will make call for translation
+         */
+        /*
+        // cannot run on main thread so run as async task
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+
+                try {
+                    String response = Translate();
+                    tv.setText(response);
+
+                } catch (Exception e) {
+                    Log.e("TAG", String.valueOf(e));
+                }
+
+            }
+
+        });
+        */
 
 
 
@@ -349,9 +374,6 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView1 = findViewById(R.id.lang_select_view);
         navigationView1.setNavigationItemSelectedListener(this);
-
-
-
     }
 
 
@@ -377,9 +399,14 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        drawer.closeDrawer(GravityCompat.START);
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        //DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
 
         if (id == R.id.nav_settings) {
@@ -392,39 +419,63 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_about) {
             Log.v("myApp", "About is clicked");
 
+        }
+        else if (id == R.id.nav_help) {
 
         }
-        else if (id == R.id.Arabic){
-            Log.v("myApp", "Arabic is clicked");
+        else if (id == R.id.nav_about) {
+
+
+        }
+        else if(id == R.id.add_question){
+            Intent intent = new Intent();
+            intent.setClass(MainActivity.this, AddQuestionActivity.class);
+            startActivity(intent);
+
+
+        } else if (id == R.id.Spanish){
+            params = "&to=es";
+            Toast.makeText(getApplicationContext(), "Spanish", Toast.LENGTH_SHORT).show();
             drawer.closeDrawer(GravityCompat.END);
 
 
-
-        }
-        else if (id == R.id.Spanish){
-            Log.v("myApp", "Spanish is clicked");
+        } else if (id == R.id.Portuguese){
+            params = "&to=pt";
+            Toast.makeText(getApplicationContext(), "Portuguese", Toast.LENGTH_SHORT).show();
             drawer.closeDrawer(GravityCompat.END);
 
-        }
-        else if (id == R.id.Chinese){
-            Log.v("myApp", "Chinese is clicked");
+        } else if (id == R.id.Chinese){
+            params = "&to=zh-Hans";
+            Toast.makeText(getApplicationContext(), "Chinese", Toast.LENGTH_SHORT).show();
             drawer.closeDrawer(GravityCompat.END);
-        }
-        else if (id == R.id.Vietnamese){
-            Log.v("myApp", "Vietnamese is clicked");
+
+        } else if (id == R.id.Vietnamese){
+            params = "&to=vi";
+            Toast.makeText(getApplicationContext(), "Vietnamese", Toast.LENGTH_SHORT).show();
             drawer.closeDrawer(GravityCompat.END);
-        }
-        else if (id == R.id.German){
-            Log.v("myApp", "German is clicked");
+
+        } else if (id == R.id.German){
+            params = "&to=de";
+            Toast.makeText(getApplicationContext(), "German", Toast.LENGTH_SHORT).show();
+            drawer.closeDrawer(GravityCompat.END);
+
+        } else if (id == R.id.Arabic){
+            params = "&to=ar";
+            Toast.makeText(getApplicationContext(), "Arabic", Toast.LENGTH_SHORT).show();
+            drawer.closeDrawer(GravityCompat.END);
+
+        } else if (id == R.id.Hindi){
+            params = "&to=hi";
+            Toast.makeText(getApplicationContext(), "Hindi", Toast.LENGTH_SHORT).show();
             drawer.closeDrawer(GravityCompat.END);
 
         }
-        else if (id == R.id.Portuguese){
-            Log.v("myApp", "Portuguese is clicked");
-            drawer.closeDrawer(GravityCompat.END);
-        }
+
+
+
 
         drawer.closeDrawer(GravityCompat.START);
+
         return true;
     }
 

@@ -33,6 +33,11 @@
             android:title="Arabic"
             android:icon="@drawable/language_icon"
             />
+        <item
+            android:id="@+id/Hindi"
+            android:title="Hindi"
+            android:icon="@drawable/language_icon"
+            />
     </group>
 
 
