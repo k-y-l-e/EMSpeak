@@ -1,21 +1,17 @@
 package edu.wit.seniorproject.emspeak.emspeak;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.util.Log;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -23,19 +19,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.*;
-
-import android.os.AsyncTask;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -43,7 +37,6 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
 
     LinearLayout btnLin;
     EditText et;
@@ -140,12 +133,6 @@ public class MainActivity extends AppCompatActivity
     // --------------------------------------------------------------------
 
 
-
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -187,8 +174,6 @@ public class MainActivity extends AppCompatActivity
         btnLin=(LinearLayout)findViewById(R.id.btnSV);
         et = (EditText) findViewById(R.id.inputTxt);
         tv = (TextView) findViewById(R.id.outputTxt);
-
-
 
         /*
             this was placed inside the button creation so each button
@@ -241,7 +226,6 @@ public class MainActivity extends AppCompatActivity
 
 
         /* Programmatically create buttons based off quickBtn array */
-
 
 
         btnLin=(LinearLayout)findViewById(R.id.btnSV);
@@ -302,14 +286,6 @@ public class MainActivity extends AppCompatActivity
         }
         }
 
-
-
-
-
-
-
-
-
         playBtn = (ImageButton) findViewById(R.id.txtBtn);
         playBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -346,18 +322,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-
-
-
-
-
-
-
-
-
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -371,10 +336,6 @@ public class MainActivity extends AppCompatActivity
         navigationView1.setNavigationItemSelectedListener(this);
     }
 
-
-
-
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -384,12 +345,6 @@ public class MainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
-
-
-
-
-
-
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -466,16 +421,8 @@ public class MainActivity extends AppCompatActivity
 
         }
 
-
-
-
         drawer.closeDrawer(GravityCompat.START);
 
         return true;
     }
-
-
-
-
-
 }
