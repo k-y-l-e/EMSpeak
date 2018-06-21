@@ -49,13 +49,7 @@ public class MainActivity extends AppCompatActivity
     EditText et;
     TextView tv;
     ImageButton playBtn;
-
-
-
-
-
-
-
+    String new_question;
 
     // --------------------------------------------------------------------
     // All the microsoft info we need
@@ -69,12 +63,6 @@ public class MainActivity extends AppCompatActivity
     static String params = "&to=es";//&to=it";
     static String text;// = "Hello my name is Kyle";
     // --------------------------------------------------------------------
-
-
-
-
-
-
 
     // --------------------------------------------------------------------
     // all of Microsofts required methods
@@ -165,10 +153,36 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        String quickBtn[] = {
+                "",
+                "Do you speak English?",
+                "What is your name?",
+                "Are you under the influence of drugs or alcohol?",
+                "Show me where the pain is.",
+                "Is there anyone else with you?",
+                "Can you feel this?",
+                "What is your blood type?",
+                "Do you know where you are?",
+                "Do you remember what happened?",
+                "Do you have any allergies?",
+                "Are you taking any medication?",
+                "Are you having difficulty breathing?",
+                "How does your head feel?",
+                "Is your vision normal?",
+                ""
+                };
 
-
-
-
+        Bundle bundle = this.getIntent().getExtras();
+        if(getIntent().getExtras() != null){
+            new_question = bundle.getString("new_question");
+            Log.v("EMSpeak", new_question);
+            for (int i = 0; i < quickBtn.length; i++) {
+                if (quickBtn[i] == "") {
+                    quickBtn[i] = new_question;
+                    break;
+                }
+            }
+        }
 
         btnLin=(LinearLayout)findViewById(R.id.btnSV);
         et = (EditText) findViewById(R.id.inputTxt);
@@ -224,87 +238,68 @@ public class MainActivity extends AppCompatActivity
 
         });
         */
-
 
 
         /* Programmatically create buttons based off quickBtn array */
 
-        String quickBtn[] = {"Do you speak English?",
-                            "What is your name?",
-                            "Are you under the influence of drugs or alcohol?",
-                            "Show me where the pain is.",
-                            "Is there anyone else with you?",
-                            "Can you feel this?",
-                            "What is your blood type?",
-                            "Do you know where you are?",
-                            "Do you remember what happened?",
-                            "Do you have any allergies?",
-                            "Are you taking any medication?",
-                            "Are you having difficulty breathing?",
-                            "How does your head feel?",
-                            "Is your vision normal?"};
-
-
-
-
-
-
 
 
         btnLin=(LinearLayout)findViewById(R.id.btnSV);
         et = (EditText) findViewById(R.id.inputTxt);
         tv = (TextView) findViewById(R.id.outputTxt);
-
 
         int n = quickBtn.length;
 
         Button[] btn = new Button[n];
 
-
         for (int i = 0; i < n; i++) {
-            btn[i] = new Button(this); //create button object
-            btn[i].setText(quickBtn[i]); //sets button's text
-            btnLin.addView(btn[i]); //adds button to LinearLayout inside ScrollView
+            if (quickBtn[i] != ""){
 
-            /* creates onClickListener for each button so when clicked,
-               its text will populate the text fields */
-            btn[i].setOnClickListener(new View.OnClickListener() {
+
+                btn[i] = new Button(this); //create button object
+                btn[i].setText(quickBtn[i]); //sets button's text
+                btnLin.addView(btn[i]); //adds button to LinearLayout inside ScrollView
+
+                /* creates onClickListener for each button so when clicked,
+                   its text will populate the text fields */
+                btn[i].setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
+                    public void onClick(View v) {
 
-                    Button b = (Button)v;
-                    String bTxt = b.getText().toString();
+                        Button b = (Button) v;
+                        String bTxt = b.getText().toString();
 
-                    // change variable globally
-                    text = bTxt;
+                        // change variable globally
+                        text = bTxt;
 
-                    et.setText(bTxt);
-                    //tv.setText(bTxt);
-
-
-                    AsyncTask.execute(new Runnable() {
-                        @Override
-                        public void run() {
-
-                            try {
-                                String response = Translate();
-                                //tv.setText(response); //prints stringified json
-                                tv.setText(getTranslatedText(response));
+                        et.setText(bTxt);
+                        //tv.setText(bTxt);
 
 
-                            } catch (Exception e) {
-                                Log.e("TAG", String.valueOf(e));
+                        AsyncTask.execute(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                try {
+                                    String response = Translate();
+                                    //tv.setText(response); //prints stringified json
+                                    tv.setText(getTranslatedText(response));
+
+
+                                } catch (Exception e) {
+                                    Log.e("TAG", String.valueOf(e));
+                                }
+
                             }
 
-                        }
-
-                    });
+                        });
 
 
                     //tv.setText(bTxt);
 
                 }
             });
+        }
         }
 
 
