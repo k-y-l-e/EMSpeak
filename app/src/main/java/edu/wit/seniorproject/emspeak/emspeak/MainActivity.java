@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity
     // --------------------------------------------------------------------
     // All the microsoft info we need
 
-    static String subscriptionKey = "cbb3735223de414aae6bc3c5885e8630";
+    static String subscriptionKey = "ad592664cd2c4190b0732d2bbcdaa12c";//"cbb3735223de414aae6bc3c5885e8630";
 
     static String host = "https://api.cognitive.microsofttranslator.com";
     static String path = "/translate?api-version=3.0";
