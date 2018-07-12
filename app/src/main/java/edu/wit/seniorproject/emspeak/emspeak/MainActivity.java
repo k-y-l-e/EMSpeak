@@ -1,6 +1,11 @@
 package edu.wit.seniorproject.emspeak.emspeak;
 
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -23,6 +28,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import com.google.protobuf.StringValue;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -37,7 +43,6 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
     LinearLayout btnLin;
     EditText et;
     TextView tv;
@@ -140,151 +145,112 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        String quickBtn[] = {
-                "",
-                "Do you speak English?",
-                "What is your name?",
-                "Are you under the influence of drugs or alcohol?",
-                "Show me where the pain is.",
-                "Is there anyone else with you?",
-                "Can you feel this?",
-                "What is your blood type?",
-                "Do you know where you are?",
-                "Do you remember what happened?",
-                "Do you have any allergies?",
-                "Are you taking any medication?",
-                "Are you having difficulty breathing?",
-                "How does your head feel?",
-                "Is your vision normal?",
-                ""
-                };
+        String path = "/data/data/" + getPackageName() + "/questions.db";
+
+        SQLiteDatabase db;
+        db = SQLiteDatabase.openOrCreateDatabase(path, null);
+
+        String sql = "CREATE TABLE IF NOT EXISTS questions" + "(_id INTEGER PRIMARY KEY AUTOINCREMENT, question TEXT);";
+        db.execSQL(sql);
+
+//        db.execSQL("select question from questions");
+        String[] columns = {"question"};
+        String where = null;
+        String[] where_args = null;
+        String having = null;
+        String group_by = null;
+        String order_by = null;
+        Cursor cursor = db.query("questions", columns, where, where_args, group_by, having, order_by);
+        List questions_database = new ArrayList<>();
+        while(cursor.moveToNext()){
+            String question = cursor.getString(cursor.getColumnIndex("question"));
+            questions_database.add(question);
+            Log.v("questions_database", question);
+        }
+        cursor.close();
+
+        int n = questions_database.size();
+        Log.v("arraylistsize", String.valueOf(n));
+
+
+        Button[] btn = new Button[n];
+
+        btnLin=(LinearLayout)findViewById(R.id.btnSV);
+        et = (EditText) findViewById(R.id.inputTxt);
+        tv = (TextView) findViewById(R.id.outputTxt);
+
+
+        for(int i = 0; i < n; i++){
+            btn[i] = new Button(this); //create button object
+            btn[i].setText(questions_database.get(i).toString()); //sets button's text
+            btnLin.addView(btn[i]); //adds button to LinearLayout inside ScrollView
+            btn[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Button b = (Button) v;
+                    String bTxt = b.getText().toString();
+
+                    // change variable globally
+                    text = bTxt;
+
+                    et.setText(bTxt);
+                    tv.setText(bTxt);
+
+                    AsyncTask.execute(new Runnable() {
+                      @Override
+                        public void run() {
+                            try {
+                                String response = Translate();
+                                //tv.setText(response); //prints stringified json
+                                tv.setText(getTranslatedText(response));
+
+                            } catch (Exception e) {
+                                Log.e("TAG", String.valueOf(e));
+                            }
+
+                            }
+                        });
+
+                    tv.setText(bTxt);
+
+                }
+            });
+            }
+        //Close the database
+        //db.close();
+
+
+        // ADD INITIAL VALUES TO THE DATABASE
+//        ContentValues values = new ContentValues();
+//        for (int i = 0; i < quickBtn.length; i++){
+//            values.put("question", quickBtn[i]);
+//            db.insert("questions", null, values);
+//        }
+
+        // NOT NEEDED CODE - Just here if we duplicate all of the entries and need to delete them.
+//        for(int i = 3; i < 43; i++ ){
+//            String [] deleteArgs = {Integer.toString(i)};
+//            db.delete("questions", "_id=?", deleteArgs);
+//        }
+
+//        db.close();
+
+
 
         Bundle bundle = this.getIntent().getExtras();
         if(getIntent().getExtras() != null){
             new_question = bundle.getString("new_question");
             Log.v("EMSpeak", new_question);
-            for (int i = 0; i < quickBtn.length; i++) {
-                if (quickBtn[i] == "") {
-                    quickBtn[i] = new_question;
-                    break;
-                }
-            }
+            ContentValues values = new ContentValues();
+            values.put("question", new_question);
+
+            db.insert("questions", null, values);
+            db.close();
+            questions_database.add(new_question);
         }
 
-        btnLin=(LinearLayout)findViewById(R.id.btnSV);
         et = (EditText) findViewById(R.id.inputTxt);
         tv = (TextView) findViewById(R.id.outputTxt);
-
-        /*
-            this was placed inside the button creation so each button
-            will make call for translation
-         */
-        /*
-        // cannot run on main thread so run as async task
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-
-                try {
-                    String response = Translate();
-                    tv.setText(response);
-
-                } catch (Exception e) {
-                    Log.e("TAG", String.valueOf(e));
-                }
-
-            }
-
-        });
-        */
-
-
-
-
-        /*
-            this was placed inside the button creation so each button
-            will make call for translation
-         */
-        /*
-        // cannot run on main thread so run as async task
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-
-                try {
-                    String response = Translate();
-                    tv.setText(response);
-
-                } catch (Exception e) {
-                    Log.e("TAG", String.valueOf(e));
-                }
-
-            }
-
-        });
-        */
-
-
-        /* Programmatically create buttons based off quickBtn array */
-
-
-        btnLin=(LinearLayout)findViewById(R.id.btnSV);
-        et = (EditText) findViewById(R.id.inputTxt);
-        tv = (TextView) findViewById(R.id.outputTxt);
-
-        int n = quickBtn.length;
-
-        Button[] btn = new Button[n];
-
-        for (int i = 0; i < n; i++) {
-            if (quickBtn[i] != ""){
-
-
-                btn[i] = new Button(this); //create button object
-                btn[i].setText(quickBtn[i]); //sets button's text
-                btnLin.addView(btn[i]); //adds button to LinearLayout inside ScrollView
-
-                /* creates onClickListener for each button so when clicked,
-                   its text will populate the text fields */
-                btn[i].setOnClickListener(new View.OnClickListener() {
-                @Override
-                    public void onClick(View v) {
-
-                        Button b = (Button) v;
-                        String bTxt = b.getText().toString();
-
-                        // change variable globally
-                        text = bTxt;
-
-                        et.setText(bTxt);
-                        //tv.setText(bTxt);
-
-
-                        AsyncTask.execute(new Runnable() {
-                            @Override
-                            public void run() {
-
-                                try {
-                                    String response = Translate();
-                                    //tv.setText(response); //prints stringified json
-                                    tv.setText(getTranslatedText(response));
-
-
-                                } catch (Exception e) {
-                                    Log.e("TAG", String.valueOf(e));
-                                }
-
-                            }
-
-                        });
-
-
-                    //tv.setText(bTxt);
-
-                }
-            });
-        }
-        }
 
         playBtn = (ImageButton) findViewById(R.id.txtBtn);
         playBtn.setOnClickListener(new View.OnClickListener() {
