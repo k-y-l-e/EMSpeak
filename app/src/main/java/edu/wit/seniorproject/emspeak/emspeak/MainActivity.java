@@ -1,5 +1,6 @@
 package edu.wit.seniorproject.emspeak.emspeak;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -154,6 +156,8 @@ public class MainActivity extends AppCompatActivity
         db.execSQL(sql);
 
 //        db.execSQL("select question from questions");
+//        db.execSQL("delete from questions");
+
         String[] columns = {"question"};
         String where = null;
         String[] where_args = null;
@@ -168,7 +172,6 @@ public class MainActivity extends AppCompatActivity
             Log.v("questions_database", question);
         }
         cursor.close();
-
         int n = questions_database.size();
         Log.v("arraylistsize", String.valueOf(n));
 
@@ -201,7 +204,7 @@ public class MainActivity extends AppCompatActivity
                         public void run() {
                             try {
                                 String response = Translate();
-                                //tv.setText(response); //prints stringified json
+                                //tv.setText(response); //prints stringfield json
                                 tv.setText(getTranslatedText(response));
 
                             } catch (Exception e) {
@@ -228,7 +231,7 @@ public class MainActivity extends AppCompatActivity
 //        }
 
         // NOT NEEDED CODE - Just here if we duplicate all of the entries and need to delete them.
-//        for(int i = 3; i < 43; i++ ){
+//        for(int i = 0; i < questions_database.size(); i++ ){
 //            String [] deleteArgs = {Integer.toString(i)};
 //            db.delete("questions", "_id=?", deleteArgs);
 //        }
@@ -247,7 +250,13 @@ public class MainActivity extends AppCompatActivity
             db.insert("questions", null, values);
             db.close();
             questions_database.add(new_question);
+            finish();
+            startActivity(new Intent(this, MainActivity.class));
+            overridePendingTransition(0, 0);
+
+
         }
+
 
         et = (EditText) findViewById(R.id.inputTxt);
         tv = (TextView) findViewById(R.id.outputTxt);
@@ -300,6 +309,11 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView1 = findViewById(R.id.lang_select_view);
         navigationView1.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     @Override
