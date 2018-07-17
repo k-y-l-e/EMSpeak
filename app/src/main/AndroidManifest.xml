@@ -32,6 +32,10 @@
             android:name=".AddQuestionActivity">
         </activity>
 
+        <activity
+            android:name=".AboutActivity">
+        </activity>
+
     </application>
 
 </manifest>

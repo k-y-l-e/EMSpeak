@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/About_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="12pt"
+        android:textColor="@android:color/black"
+        android:text="About EMSpeak"
+        />
+
+    <TextView
+        android:id="@+id/about_txt"
+        android:layout_below="@id/About_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textSize="10pt"
+        android:textColor="@android:color/black"
+        android:text="EMSpeak is an application with the goal to help first responders communicate with their patients no matter what language they can speak. EMSpeak currently supports 62 languages as well as both text to text and text to speach translations."/>
+
+</RelativeLayout>

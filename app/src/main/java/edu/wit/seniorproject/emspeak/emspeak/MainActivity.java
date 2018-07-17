@@ -338,16 +338,14 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         //DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-
-        if (id == R.id.nav_settings) {
-            Log.v("myApp", "settings is clicked");
-
-        } else if (id == R.id.nav_help) {
+        if (id == R.id.nav_help) {
             Log.v("myApp", "Help is clicked");
-
 
         } else if (id == R.id.nav_about) {
             Log.v("myApp", "About is clicked");
+            Intent intent = new Intent();
+            intent.setClass(MainActivity.this, AboutActivity.class);
+            startActivity(intent);
 
         }
         else if (id == R.id.nav_help) {
