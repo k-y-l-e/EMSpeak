@@ -428,6 +428,8 @@ public class MainActivity extends AppCompatActivity
                 if (resultCode == RESULT_OK && data != null) {
                     ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     Log.v("EMSpeak", "text input is: " + result.get(0));
+                    et.setText((result.get(0)));
+
 
                 }
                 break;
