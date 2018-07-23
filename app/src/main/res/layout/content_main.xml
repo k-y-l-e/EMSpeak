@@ -101,6 +101,7 @@
         android:layout_width="match_parent"
         android:layout_height="30pt"
         android:layout_weight=".5"
+        android:onClick="getSpeechInput"
         android:scaleType="fitCenter"
         android:windowSoftInputMode="adjustNothing" />
 
