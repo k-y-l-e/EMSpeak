@@ -36,6 +36,7 @@ import com.google.protobuf.StringValue;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
+import java.net.IDN;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -165,7 +166,7 @@ public class MainActivity extends AppCompatActivity
         String[] where_args = null;
         String having = null;
         String group_by = null;
-        String order_by = null;
+        String order_by = "_id DESC";
         Cursor cursor = db.query("questions", columns, where, where_args, group_by, having, order_by);
         List questions_database = new ArrayList<>();
         while(cursor.moveToNext()){
