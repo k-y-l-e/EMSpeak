@@ -401,6 +401,11 @@ public class MainActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.END);
 
         }
+        else if (id == R.id.English) {
+            params = "&to=en";
+            Toast.makeText(getApplicationContext(), "English", Toast.LENGTH_SHORT).show();
+            drawer.closeDrawer(GravityCompat.END);
+        }
 
         drawer.closeDrawer(GravityCompat.START);
 

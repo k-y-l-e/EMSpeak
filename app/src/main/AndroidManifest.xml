@@ -36,6 +36,10 @@
             android:name=".AboutActivity">
         </activity>
 
+        <activity
+            android:name=".HelpActivity">
+        </activity>
+
     </application>
 
 </manifest>

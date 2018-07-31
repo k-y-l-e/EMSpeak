@@ -5,6 +5,10 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/English"
+            android:title="English"
+            android:icon="@drawable/language_icon" />
+        <item
             android:id="@+id/Spanish"
             android:title="Spanish"
             android:icon="@drawable/language_icon"/>
@@ -38,6 +42,7 @@
             android:title="Hindi"
             android:icon="@drawable/language_icon"
             />
+
     </group>
 
 
