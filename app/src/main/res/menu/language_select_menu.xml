@@ -9,22 +9,95 @@
             android:title="English"
             android:icon="@drawable/language_icon" />
         <item
-            android:id="@+id/Spanish"
-            android:title="Spanish"
+            android:id="@+id/Afrikaans"
+            android:title="Afrikaans"
             android:icon="@drawable/language_icon"/>
         <item
-            android:id="@+id/Portuguese"
-            android:title="Portuguese"
+            android:id="@+id/Arabic"
+            android:title="Arabic"
             android:icon="@drawable/language_icon"
             />
         <item
-            android:id="@+id/Chinese"
-            android:title="Chinese"
+            android:id="@+id/Arabic_Levantine"
+            android:title="Arabic, Levantine"
             android:icon="@drawable/language_icon"
             />
         <item
-            android:id="@+id/Vietnamese"
-            android:title="Vietnamese"
+            android:id="@+id/Bangla"
+            android:title="Bangla"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Bosnian"
+            android:title="Bosnian"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Bulgarian"
+            android:title="Bulgarian"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Cantonese"
+            android:title="Cantonese "
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Catalan"
+            android:title="Catalan"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Chinese_Simplified"
+            android:title="Chinese Simplified"
+            android:icon="@drawable/language_icon" />
+        <item
+            android:id="@+id/Chinese_Traditional"
+            android:title="Chinese Traditional"
+            android:icon="@drawable/language_icon"/>
+        <item
+            android:id="@+id/Croatian"
+            android:title="Croatian"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Czech"
+            android:title="Czech"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Danish"
+            android:title="Danish"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Dutch"
+            android:title="Dutch"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Estonian"
+            android:title="Estonian"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Fijian"
+            android:title="Fijian"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Filipino"
+            android:title="Filipino"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Finnish"
+            android:title="Finnish"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/French"
+            android:title="French"
             android:icon="@drawable/language_icon"
             />
         <item
@@ -33,13 +106,218 @@
             android:icon="@drawable/language_icon"
             />
         <item
-            android:id="@+id/Arabic"
-            android:title="Arabic"
+            android:id="@+id/Greek"
+            android:title="Greek"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Haitian_Creole"
+            android:title="Haitian Creole"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Hebrew"
+            android:title="Hebrew"
             android:icon="@drawable/language_icon"
             />
         <item
             android:id="@+id/Hindi"
             android:title="Hindi"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Hmong_Daw"
+            android:title="Hmong Daw"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Hungarian"
+            android:title="Hungarian"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Icelandic"
+            android:title="Icelandic"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Indonesian"
+            android:title="Indonesian"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Italian"
+            android:title="Italian"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Japanese"
+            android:title="Japanese"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Kiswahili"
+            android:title="Kiswahili"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Klingon"
+            android:title="Klingon"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Klingon_plqaD"
+            android:title="Klingon (plqaD)"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Korean"
+            android:title="Korean"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Latvian"
+            android:title="Latvian"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Lithuanian"
+            android:title="Lithuanian"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Malagasy"
+            android:title="Malagasy"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Malay"
+            android:title="Malay"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Maltese"
+            android:title="Maltese"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Norwegian"
+            android:title="Norwegian"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Persian"
+            android:title="Persian"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Polish"
+            android:title="Polish"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Portuguese"
+            android:title="Portuguese"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Queretaro_Otomi"
+            android:title="Queretaro Otomi"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Romanian"
+            android:title="Romanian"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Russian"
+            android:title="Russian"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Samoan"
+            android:title="Samoan"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Serbian_Cyrillic"
+            android:title="Serbian (Cyrillic)"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Serbian_Latin"
+            android:title="Serbian (Latin)"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Slovak"
+            android:title="Slovak"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Slovenian"
+            android:title="Slovenian"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Spanish"
+            android:title="Spanish"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Swedish"
+            android:title="Swedish"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Tahitian"
+            android:title="Tahitian"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Tamil"
+            android:title="Tamil"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Thai"
+            android:title="Thai"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Tongan"
+            android:title="Tongan"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Turkish"
+            android:title="Turkish"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Ukrainian"
+            android:title="Ukrainian"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Urdu"
+            android:title="Urdu"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Vietnamese"
+            android:title="Vietnamese"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Welsh"
+            android:title="Welsh"
+            android:icon="@drawable/language_icon"
+            />
+        <item
+            android:id="@+id/Yucatec_Maya"
+            android:title="Yucatec Maya"
             android:icon="@drawable/language_icon"
             />
 
