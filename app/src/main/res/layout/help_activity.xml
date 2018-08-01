@@ -5,8 +5,80 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="test"/>
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="EMSpeak User Guide"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="11pt"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lang_select"
+        android:text="How to select a language:"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"/>
+
+    <TextView
+        android:id="@+id/help_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@id/lang_select"
+        android:text="To select a language to translate into simply swipe left from the right edge of the screen to open the EMSpeak language select menu"/>
+    <TextView
+        android:id="@+id/google_voice_typing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/help_text"/>
+
+    <TextView
+        android:id="@+id/speech_title"
+        android:text="How to input speech"
+        android:textColor="@android:color/black"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:layout_below="@id/google_voice_typing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        />
+    <TextView
+        android:id="@+id/record_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@id/speech_title"
+        android:text="To record your voice or the voice of the patient simply tap on the microphone to launch Google Voice Typing and the inputted text will automatically appear at the top of the screen."/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_question_ttle"
+        android:textColor="@android:color/black"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:layout_below="@id/record_txt"
+        android:text="How to add a new question"
+        />
+    <TextView
+        android:id="@+id/add_question_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@id/add_question_ttle"
+        android:text="To add a new question, simply open the left navigation drawer and click on 'Add a new question'. This will redirect you to the EMSpeak Add Question page, once submit is clicked the new question will appear at the top of the list of questions on the EMSpeak home page."
+        />
 
 </RelativeLayout>

@@ -1,10 +1,7 @@
 package edu.wit.seniorproject.emspeak.emspeak;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
@@ -19,31 +16,24 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import com.google.protobuf.StringValue;
-
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
-import java.net.IDN;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-
 import javax.net.ssl.HttpsURLConnection;
-
 
 
 public class MainActivity extends AppCompatActivity
@@ -138,7 +128,6 @@ public class MainActivity extends AppCompatActivity
         return transdTxt;
 
     }
-
 
     // --------------------------------------------------------------------
 
@@ -343,6 +332,9 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_help) {
             Log.v("myApp", "Help is clicked");
+            Intent intent = new Intent();
+            intent.setClass(MainActivity.this, HelpActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_about) {
             Log.v("myApp", "About is clicked");
