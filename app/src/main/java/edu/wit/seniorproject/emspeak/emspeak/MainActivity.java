@@ -356,7 +356,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
 
 
-        } else if (id == R.id.Spanish){
+        } /*else if (id == R.id.Spanish){
             params = "&to=es";
             Toast.makeText(getApplicationContext(), "Spanish", Toast.LENGTH_SHORT).show();
             drawer.closeDrawer(GravityCompat.END);
@@ -397,7 +397,405 @@ public class MainActivity extends AppCompatActivity
             params = "&to=en";
             Toast.makeText(getApplicationContext(), "English", Toast.LENGTH_SHORT).show();
             drawer.closeDrawer(GravityCompat.END);
+        }*/
+        
+        
+        
+        switch (id) {
+            case R.id.English:
+                params = "&to=en";
+                Toast.makeText(getApplicationContext(), "English", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Afrikaans:
+                params = "&to=af";
+                Toast.makeText(getApplicationContext(), "Afrikaans", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Arabic:
+                params = "&to=ar";
+                Toast.makeText(getApplicationContext(), "Arabic", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Arabic_Levantine:
+                params = "&to=apc";
+                Toast.makeText(getApplicationContext(), "Arabic, Levantine", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Bangla:
+                params = "&to=bn";
+                Toast.makeText(getApplicationContext(), "Bangla", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Bosnian:
+                params = "&to=bs";
+                Toast.makeText(getApplicationContext(), "Bosnian", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Bulgarian:
+                params = "&to=bg";
+                Toast.makeText(getApplicationContext(), "Bulgarian", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Cantonese:
+                params = "&to=yue";
+                Toast.makeText(getApplicationContext(), "Cantonese ", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Catalan:
+                params = "&to=ca";
+                Toast.makeText(getApplicationContext(), "Catalan", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Chinese_Simplified:
+                params = "&to=zh-Hans";
+                Toast.makeText(getApplicationContext(), "Chinese Simplified", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Chinese_Traditional:
+                params = "&to=zh-Hant";
+                Toast.makeText(getApplicationContext(), "Chinese Traditional", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Croatian:
+                params = "&to=hr";
+                Toast.makeText(getApplicationContext(), "Croatian", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Czech:
+                params = "&to=cs";
+                Toast.makeText(getApplicationContext(), "Czech", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Danish:
+                params = "&to=da";
+                Toast.makeText(getApplicationContext(), "Danish", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Dutch:
+                params = "&to=nl";
+                Toast.makeText(getApplicationContext(), "Dutch", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Estonian:
+                params = "&to=et";
+                Toast.makeText(getApplicationContext(), "Estonian", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Fijian:
+                params = "&to=fj";
+                Toast.makeText(getApplicationContext(), "Fijian", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Filipino:
+                params = "&to=fil";
+                Toast.makeText(getApplicationContext(), "Filipino", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Finnish:
+                params = "&to=fi";
+                Toast.makeText(getApplicationContext(), "Finnish", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.French:
+                params = "&to=fr";
+                Toast.makeText(getApplicationContext(), "French", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.German:
+                params = "&to=de";
+                Toast.makeText(getApplicationContext(), "German", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Greek:
+                params = "&to=el";
+                Toast.makeText(getApplicationContext(), "Greek", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Haitian_Creole:
+                params = "&to=ht";
+                Toast.makeText(getApplicationContext(), "Haitian Creole", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Hebrew:
+                params = "&to=he";
+                Toast.makeText(getApplicationContext(), "Hebrew", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Hindi:
+                params = "&to=hi";
+                Toast.makeText(getApplicationContext(), "Hindi", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Hmong_Daw:
+                params = "&to=mww";
+                Toast.makeText(getApplicationContext(), "Hmong Daw", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Hungarian:
+                params = "&to=hu";
+                Toast.makeText(getApplicationContext(), "Hungarian", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Icelandic:
+                params = "&to=is";
+                Toast.makeText(getApplicationContext(), "Icelandic", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Indonesian:
+                params = "&to=id";
+                Toast.makeText(getApplicationContext(), "Indonesian", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Italian:
+                params = "&to=it";
+                Toast.makeText(getApplicationContext(), "Italian", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Japanese:
+                params = "&to=ja";
+                Toast.makeText(getApplicationContext(), "Japanese", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Kiswahili:
+                params = "&to=sw";
+                Toast.makeText(getApplicationContext(), "Kiswahili", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Klingon:
+                params = "&to=tlh";
+                Toast.makeText(getApplicationContext(), "Klingon", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Klingon_plqaD:
+                params = "&to=tlh-Qaak";
+                Toast.makeText(getApplicationContext(), "Klingon (plqaD)", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Korean:
+                params = "&to=ko";
+                Toast.makeText(getApplicationContext(), "Korean", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Latvian:
+                params = "&to=lv";
+                Toast.makeText(getApplicationContext(), "Latvian", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Lithuanian:
+                params = "&to=lt";
+                Toast.makeText(getApplicationContext(), "Lithuanian", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Malagasy:
+                params = "&to=mg";
+                Toast.makeText(getApplicationContext(), "Malagasy", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Malay:
+                params = "&to=ms";
+                Toast.makeText(getApplicationContext(), "Malay", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Maltese:
+                params = "&to=mt";
+                Toast.makeText(getApplicationContext(), "Maltese", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Norwegian:
+                params = "&to=nb";
+                Toast.makeText(getApplicationContext(), "Norwegian", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Persian:
+                params = "&to=fa";
+                Toast.makeText(getApplicationContext(), "Persian", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Polish:
+                params = "&to=pl";
+                Toast.makeText(getApplicationContext(), "Polish", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Portuguese:
+                params = "&to=pt";
+                Toast.makeText(getApplicationContext(), "Portuguese", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Queretaro_Otomi:
+                params = "&to=otq";
+                Toast.makeText(getApplicationContext(), "Queretaro Otomi", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Romanian:
+                params = "&to=ro";
+                Toast.makeText(getApplicationContext(), "Romanian", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Russian:
+                params = "&to=ru";
+                Toast.makeText(getApplicationContext(), "Russian", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Samoan:
+                params = "&to=sm";
+                Toast.makeText(getApplicationContext(), "Samoan", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Serbian_Cyrillic:
+                params = "&to=sr-Cyrl";
+                Toast.makeText(getApplicationContext(), "Serbian (Cyrillic)", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Serbian_Latin:
+                params = "&to=sr-Latn";
+                Toast.makeText(getApplicationContext(), "Serbian (Latin)", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Slovak:
+                params = "&to=sk";
+                Toast.makeText(getApplicationContext(), "Slovak", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Slovenian:
+                params = "&to=sl";
+                Toast.makeText(getApplicationContext(), "Slovenian", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Spanish:
+                params = "&to=es";
+                Toast.makeText(getApplicationContext(), "Spanish", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Swedish:
+                params = "&to=sv";
+                Toast.makeText(getApplicationContext(), "Swedish", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Tahitian:
+                params = "&to=";
+                Toast.makeText(getApplicationContext(), "Tahitian", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Tamil:
+                params = "&to=ta";
+                Toast.makeText(getApplicationContext(), "Tamil", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Thai:
+                params = "&to=th";
+                Toast.makeText(getApplicationContext(), "Thai", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Tongan:
+                params = "&to=to";
+                Toast.makeText(getApplicationContext(), "Tongan", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Turkish:
+                params = "&to=";
+                Toast.makeText(getApplicationContext(), "Turkish", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Ukrainian:
+                params = "&to=uk";
+                Toast.makeText(getApplicationContext(), "Ukrainian", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Urdu:
+                params = "&to=ur";
+                Toast.makeText(getApplicationContext(), "Urdu", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Vietnamese:
+                params = "&to=vi";
+                Toast.makeText(getApplicationContext(), "Vietnamese", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Welsh:
+                params = "&to=cy";
+                Toast.makeText(getApplicationContext(), "Welsh", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            case R.id.Yucatec_Maya:
+                params = "&to=yua";
+                Toast.makeText(getApplicationContext(), "Yucatec Maya", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
+
+            default:
+                params = "&to=es";
+                Toast.makeText(getApplicationContext(), "Spanish", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.END);
+                break;
         }
+        
+        
+        
+        
 
         drawer.closeDrawer(GravityCompat.START);
 
