@@ -189,7 +189,7 @@ public class MainActivity extends AppCompatActivity
                     text = bTxt;
 
                     et.setText(bTxt);
-                    tv.setText(bTxt);
+                    //tv.setText(bTxt);
 
                     AsyncTask.execute(new Runnable() {
                       @Override
@@ -206,7 +206,7 @@ public class MainActivity extends AppCompatActivity
                             }
                         });
 
-                    tv.setText(bTxt);
+                    //tv.setText(bTxt);
 
                 }
             });
