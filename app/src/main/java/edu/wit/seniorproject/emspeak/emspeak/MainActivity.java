@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.speech.tts.TextToSpeech;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -43,6 +44,8 @@ public class MainActivity extends AppCompatActivity
     TextView tv;
     ImageButton playBtn;
     String new_question;
+    TextToSpeech t1;
+
 
     // --------------------------------------------------------------------
     // All the microsoft info we need
@@ -71,9 +74,9 @@ public class MainActivity extends AppCompatActivity
 
     public static String Post (URL url, String content) throws Exception {
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        connection.setRequestMethod("POST");
+//        connection.setRequestMethod("POST");
         connection.setRequestProperty("Content-Type", "application/json");
-        connection.setRequestProperty("Content-Length", content.length() + "");
+//        connection.setRequestProperty("Content-Length", content.length() + "");
         connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
         connection.setRequestProperty("X-ClientTraceId", java.util.UUID.randomUUID().toString());
         connection.setDoOutput(true);
@@ -166,6 +169,16 @@ public class MainActivity extends AppCompatActivity
         cursor.close();
         int n = questions_database.size();
         Log.v("arraylistsize", String.valueOf(n));
+
+
+        t1 = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener(){
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t1.setLanguage(Locale.US);
+                }
+            }
+        });
 
 
         Button[] btn = new Button[n];
@@ -282,6 +295,10 @@ public class MainActivity extends AppCompatActivity
                     }
 
                 });
+
+                String toSpeak = tv.getText().toString();
+                Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
+                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
 
 
                 //tv.setText(bTxt);
@@ -405,6 +422,7 @@ public class MainActivity extends AppCompatActivity
             case R.id.English:
                 params = "&to=en";
                 Toast.makeText(getApplicationContext(), "English", Toast.LENGTH_SHORT).show();
+                t1.setLanguage(Locale.US);
                 drawer.closeDrawer(GravityCompat.END);
                 break;
 
@@ -459,12 +477,14 @@ public class MainActivity extends AppCompatActivity
             case R.id.Chinese_Simplified:
                 params = "&to=zh-Hans";
                 Toast.makeText(getApplicationContext(), "Chinese Simplified", Toast.LENGTH_SHORT).show();
+                t1.setLanguage(Locale.CHINESE);
                 drawer.closeDrawer(GravityCompat.END);
                 break;
 
             case R.id.Chinese_Traditional:
                 params = "&to=zh-Hant";
                 Toast.makeText(getApplicationContext(), "Chinese Traditional", Toast.LENGTH_SHORT).show();
+                t1.setLanguage(Locale.TRADITIONAL_CHINESE);
                 drawer.closeDrawer(GravityCompat.END);
                 break;
 
@@ -519,12 +539,14 @@ public class MainActivity extends AppCompatActivity
             case R.id.French:
                 params = "&to=fr";
                 Toast.makeText(getApplicationContext(), "French", Toast.LENGTH_SHORT).show();
+                t1.setLanguage(Locale.FRANCE);
                 drawer.closeDrawer(GravityCompat.END);
                 break;
 
             case R.id.German:
                 params = "&to=de";
                 Toast.makeText(getApplicationContext(), "German", Toast.LENGTH_SHORT).show();
+                t1.setLanguage(Locale.GERMANY);
                 drawer.closeDrawer(GravityCompat.END);
                 break;
 
@@ -579,12 +601,14 @@ public class MainActivity extends AppCompatActivity
             case R.id.Italian:
                 params = "&to=it";
                 Toast.makeText(getApplicationContext(), "Italian", Toast.LENGTH_SHORT).show();
+                t1.setLanguage(Locale.ITALY);
                 drawer.closeDrawer(GravityCompat.END);
                 break;
 
             case R.id.Japanese:
                 params = "&to=ja";
                 Toast.makeText(getApplicationContext(), "Japanese", Toast.LENGTH_SHORT).show();
+                t1.setLanguage(Locale.JAPAN);
                 drawer.closeDrawer(GravityCompat.END);
                 break;
 
@@ -609,6 +633,7 @@ public class MainActivity extends AppCompatActivity
             case R.id.Korean:
                 params = "&to=ko";
                 Toast.makeText(getApplicationContext(), "Korean", Toast.LENGTH_SHORT).show();
+                t1.setLanguage(Locale.KOREAN);
                 drawer.closeDrawer(GravityCompat.END);
                 break;
 
